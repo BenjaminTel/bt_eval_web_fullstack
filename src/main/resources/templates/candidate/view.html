@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="'Détails du candidat : ' + ${candidate.name}">Détails du candidat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+<div class="container-fluid px-0">
+    <div class="row g-0">
+        <div class="col-2 bg-dark vh-100 p-3 text-white">
+            <div th:replace="~{fragments/sidebar :: sidebar}"></div>
+        </div>
+        <div class="col-10 mt-5 p-4">
+            <h2 th:text="'Détails du candidat : ' + ${candidate.name}"></h2>
+            <div class="mt-4 d-flex gap-2 mb-4">
+                <a th:href="@{/api/candidates/edit/{id}(id=${candidate.id})}" class="btn btn-warning">Éditer</a>
+                <a th:href="@{/api/candidates/delete/{id}(id=${candidate.id})}"
+                   class="btn btn-danger"
+                   onclick="return confirm('Supprimer ce candidat ?')">Supprimer</a>
+                <a th:href="@{/api/candidates}" class="btn btn-secondary">Retour à la liste</a>
+            </div>
+
+            <table class="table table-striped">
+                <tbody>
+                <tr>
+                    <th scope="row" style="width: 30%;">Nom</th>
+                    <td th:text="${candidate.name}">Nom</td>
+                </tr>
+                <tr>
+                    <th scope="row">Numéro d'identification</th>
+                    <td th:text="${candidate.identificationNumber}">ID</td>
+                </tr>
+                <tr>
+                    <th scope="row">Adresse</th>
+                    <td th:text="${candidate.address}">Adresse</td>
+                </tr>
+                <tr>
+                    <th scope="row">Date de naissance</th>
+                    <td th:text="${candidate.dateOfBirth}">Date de naissance</td>
+                </tr>
+                <tr>
+                    <th scope="row">Email</th>
+                    <td th:text="${candidate.email}">Email</td>
+                </tr>
+                <tr>
+                    <th scope="row">Téléphone</th>
+                    <td th:text="${candidate.phone}">Téléphone</td>
+                </tr>
+                <tr>
+                    <th scope="row">Domaine technique</th>
+                    <td th:text="${candidate.technicalField}">Domaine technique</td>
+                </tr>
+                <tr>
+                    <th scope="row">Score d'évaluation</th>
+                    <td th:text="${candidate.evaluationScore}">Score (1-10)</td>
+                </tr>
+                <tr>
+                    <th scope="row">Date d'entretien</th>
+                    <td th:text="${candidate.interviewDate}">Date entretien</td>
+                </tr>
+                <tr>
+                    <th scope="row">Observations</th>
+                    <td th:text="${candidate.observations}">Observations</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

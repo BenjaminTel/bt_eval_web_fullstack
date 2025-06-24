@@ -1,0 +1,17 @@
+<div th:fragment="sidebar">
+    <div class="bg-dark text-white vh-100 p-3">
+        <h4 class="text-white">Système de gestion RH</h4>
+        <h5 class="text-secondary">par Ynov</h5>
+        <ul class="nav flex-column mt-4">
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/api/home}">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/api/employees}">Employés</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" th:href="@{/api/candidates}">Candidats</a>
+            </li>
+        </ul>
+    </div>
+</div>
